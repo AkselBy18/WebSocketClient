@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --SideBarColor: #E4E0E1;
+    --SideBarBorder: #3C3D37;
+    --Green: #0CB495;
+    --Blue: #019CDD;
+    --Red: #D03593;
+    --Gray: #686D76;
+}
+
+.vertical-center {
+    display: flex;
+    justify-content: center;
+}
+
+html, body, button {
+    color: #181C14 !important;
+    overflow-y: hidden;
+}
+
+button {
+    height: 4.5vh !important;
+    width: 65% !important;
+    border-radius: 10px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.icon-reload {
+    width: auto;
+    height: 4vh;
+}
+
+.scroll {
+    overflow-y: scroll;
+    min-height: 50vh;
+    max-height: 70vh;
+}
+
+.text-gray {
+    color: var(--Gray) !important;
+}

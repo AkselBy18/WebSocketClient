@@ -1,0 +1,11 @@
+.header-container {
+    width: 80%;
+    background-color: var(--SideBarColor);
+}
+
+.cell-client {
+    border-radius: 10px;
+    border: 1px solid var(--SideBarBorder);
+    margin-bottom: 5px;
+    padding: 10px;
+}

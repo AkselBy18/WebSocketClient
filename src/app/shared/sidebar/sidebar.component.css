@@ -1,0 +1,43 @@
+.container-side-bar {
+    height: 100vh;
+}
+
+.sidebar {
+    transform: translateY(30vh);
+    height: 40vh;
+    border: 2px solid var(--SideBarBorder);
+    background-color: var(--SideBarColor);
+    border-radius: 15px;
+}
+
+.btn-client {
+    background-color: var(--Green);
+    color: white !important;
+}
+
+.btn-client-event:hover {
+    background-color: var(--Green);
+    color: white !important;
+}
+
+.btn-address {
+    background-color: var(--Blue);
+    color: white !important;
+}
+
+
+.btn-address-event:hover {
+    background-color: var(--Blue);
+    color: white !important;
+}
+
+.btn-order {
+    background-color: var(--Red);
+    color: white !important;
+}
+
+.btn-order-event:hover {
+    background-color: var(--Red);
+    color: white !important;
+}
+

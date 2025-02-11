@@ -1,0 +1,33 @@
+<div class="row vertical-center">
+    <div class="col-10">
+        <div class="row vertical-center ms-5">
+            <h3 class="col-2 ms-5 section-title">
+                Clients
+            </h3>
+            <img
+                src="/icons/reload.png"
+                alt=""
+                class="icon-reload">
+        </div>
+        <div
+            class="col-12 mt-4 scroll ps-4"
+            style="transform: translateX(21%)">
+            <div
+                *ngFor="let row of data"
+                class="row col-7 cell-client">
+                <div class="row">
+                    <h5 class="col mb-0">Aksel Akemi Herrera Gonzalez</h5>
+                    <p class="col mb-0 text-end text-gray">323-XXX-XXX{{ row }}</p>
+                </div>
+                <div class="row mt-1">
+                    <h6 class="col m-0 text-gray">
+                        akselherrera18gmail.com
+                    </h6>
+                    <!--<button class="w-25 m-0">
+
+                    </button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
