@@ -30,20 +30,94 @@
                     </div>
                     <div class="row col align-end actions-box">
                         <button
-                            class="btn-action edit">
+                            class="btn-action edit"
+                            [class.confirm]="row.deleting"
+                            (click)="row.deleting ? deleteAddress(row) : setEditAddress(row)">
                             <img
-                                src="/icons/edit.png"
+                                src="/icons/{{row.deleting ? 'done.png' : 'edit.png'}}"
                                 alt="">
                         </button>
                         <button
-                            class="btn-action delete ms-2">
+                            class="btn-action delete ms-2"
+                            (click)="row.deleting = !row.deleting">
                             <img
-                                src="/icons/delete.png"
+                                src="/icons/{{row.deleting ? 'cancel.png' : 'delete.png'}}"
                                 alt="">
                         </button>
                     </div>
                 </div>
             </div>
+            <div
+                #cellAdd
+                class="row col-7 cell-row mb-2">
+                <select
+                    class="form-select"
+                    [(ngModel)]="currentAddress.id_client">
+                    <option
+                        *ngFor="let client of clients"
+                        [disabled]="currentAddress.id_client !== 0"
+                        [selected]="currentAddress.id_client === client.id_client"
+                        [value]="client.id_client">
+                        {{client.name}}
+                    </option>
+                </select>
+                <input
+                    class="form-control mt-2"
+                    type="text"
+                    placeholder="Dirección"
+                    [(ngModel)]="currentAddress.street">
+                <div class="row col-12 p-0 mt-2">
+                    <div class="col">
+                        <input
+                            class="form-control w-100"
+                            type="text"
+                            placeholder="Ciudad"
+                            [(ngModel)]="currentAddress.city">
+                    </div>
+                    <div class="col pe-0">
+                        <input
+                            class="form-control"
+                            type="text"
+                            placeholder="País"
+                            [(ngModel)]="currentAddress.country">
+                    </div>
+                </div>
+                <div class="row p-0 mt-2">
+                    <div class="col">
+                        <input
+                            class="form-control w-100"
+                            type="text"
+                            placeholder="Estado"
+                            [(ngModel)]="currentAddress.state">
+                    </div>
+                    <div class="col pe-0">
+                        <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Código Postal"
+                            [(ngModel)]="currentAddress.zip_code">
+                    </div>
+                </div>
+                <div class="col-12 vertical-center mt-2">
+                    <button
+                        class="btn-save"
+                        (click)="sendRequest()">
+                        <img
+                            src="/icons/done.png"
+                            alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <button
+                class="btn btn-add add-address"
+                [class.btn-cancel]="showCellAdd"
+                (click)="addAddress()">
+                <img
+                    src="/icons/add.png"
+                    alt="">
+            </button>
         </div>
     </div>
 </div>

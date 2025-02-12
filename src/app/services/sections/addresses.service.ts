@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {RequestService} from "../request.service";
-import {AddressInterface} from "../../utils/interfaces/address.interface";
+import {Address} from "../../utils/interfaces/address.interface";
 import {ClientModel} from "../../utils/models/client.model";
 import {AddressModel} from "../../utils/models/address.model";
 import {ClientsService} from "./clients.service";
@@ -9,8 +9,7 @@ import {ClientsService} from "./clients.service";
   providedIn: 'root'
 })
 export class AddressesService {
-  private clients: ClientModel[] = [];
-
+  public clients: ClientModel[] = [];
   public addressesModel: AddressModel[] = []
 
   constructor(
@@ -21,7 +20,7 @@ export class AddressesService {
   //MARK: PUBLIC METHODS -----------------------------------------------------------------------------
   public syncAddresses() {
     return new Promise((resolve, reject) => {
-      this.services.sync<AddressInterface[]>('addresses').subscribe(response => {
+      this.services.sync<Address[]>('addresses').subscribe(response => {
         this.clientServices.getClients().then(data => {
           console.log(response)
           this.clients = data;
@@ -33,7 +32,7 @@ export class AddressesService {
   }
 
   //MARK: PRIVATE METHODS ----------------------------------------------------------------------------
-  private setModelAddress(addresses: AddressInterface[]) {
+  private setModelAddress(addresses: Address[]) {
     this.addressesModel = [];
     addresses.forEach(row => {
       const client = this.clients.find(client => client.id_client === row.id_client);

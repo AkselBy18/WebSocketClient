@@ -5,7 +5,7 @@ export interface ResponseData {
     data: object;
 }
 
-export interface DataHandle {
+export interface DataHandle<T> {
     type: 'insert' | 'update' | 'delete';
-    data: object;
+    data: T;
 }

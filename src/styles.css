@@ -80,7 +80,7 @@ button {
     padding: 1.5%;
     opacity: 0;
     transform: translateX(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.1s ease;
 }
 
 .btn-action img {

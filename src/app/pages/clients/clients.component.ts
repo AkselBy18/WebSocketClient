@@ -97,6 +97,7 @@ export class ClientsComponent implements OnInit, AfterViewInit {
   private sendDelete() {
     const data = { id_client: this.currentClient.id_client };
     this.socket.sendEvent('DELETE_CLIENT', data);
+    this.setClientDefault();
   }
 
   private handleClient() {
@@ -116,8 +117,8 @@ export class ClientsComponent implements OnInit, AfterViewInit {
     };
   }
 
-  private processEvent(event: DataHandle) {
-    const client = new ClientModel(event.data as Client);
+  private processEvent(event: DataHandle<Client>) {
+    const client = new ClientModel(event.data);
     switch (event.type) {
       case 'insert':
         this.clients.push(client);
