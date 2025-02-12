@@ -20,4 +20,13 @@ export class ClientsService {
       });
     })
   }
+
+  public async getClients() {
+    if (this.clients.length === 0) {
+      await this.syncClients();
+      return this.clients;
+    } else {
+      return this.clients;
+    }
+  }
 }

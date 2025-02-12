@@ -1,1 +1,49 @@
-<p>adresses works!</p>
+<div class="row vertical-center">
+    <div class="col-10">
+        <div class="row vertical-center ms-5">
+            <h3 class="col-2 ms-5 section-title">
+                Addresses
+            </h3>
+            <img
+                src="/icons/reload.png"
+                alt=""
+                class="icon-reload">
+        </div>
+        <div
+            class="col-12 mt-4 scroll ps-4"
+            style="transform: translateX(21%)">
+            <div
+                *ngFor="let row of addresses"
+                class="row col-7 cell-row">
+                <div class="row">
+                    <h5 class="col mb-0">{{row.client.name}}</h5>
+                    <p class="text-gray mb-2">{{row.street}}</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="col text-gray mb-0">{{row.city}}</p>
+                        <p class="col text-gray mb-0">{{row.country}}</p>
+                    </div>
+                    <div class="col text-center">
+                        <p class="col text-gray mb-0">{{row.state}}</p>
+                        <p class="col text-gray mb-0">{{row.zip_code}}</p>
+                    </div>
+                    <div class="row col align-end actions-box">
+                        <button
+                            class="btn-action edit">
+                            <img
+                                src="/icons/edit.png"
+                                alt="">
+                        </button>
+                        <button
+                            class="btn-action delete ms-2">
+                            <img
+                                src="/icons/delete.png"
+                                alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

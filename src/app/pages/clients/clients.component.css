@@ -3,12 +3,14 @@
     background-color: var(--SideBarColor);
 }
 
+/*
 .cell-client {
     border-radius: 10px;
     border: 1px solid var(--SideBarBorder);
     margin-bottom: 5px;
     padding: 10px;
 }
+*/
 
 .add-client {
     background-color: var(--Green);

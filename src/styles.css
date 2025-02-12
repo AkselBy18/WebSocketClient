@@ -105,6 +105,13 @@ button {
     background-color: var(--Delete);
 }
 
+.cell-row {
+    border-radius: 10px;
+    border: 1px solid var(--SideBarBorder);
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
 .cell-row:hover .btn-action:nth-child(1) {
     opacity: 1;
     transform: translateX(0);
