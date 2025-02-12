@@ -6,6 +6,8 @@
     --Blue: #019CDD;
     --Red: #D03593;
     --Gray: #686D76;
+    --Edit: #3674B5;
+    --Delete: #F34545;
 }
 
 .vertical-center {
@@ -19,11 +21,11 @@ html, body, button {
 }
 
 button {
+    border: none;
     height: 4.5vh !important;
     width: 65% !important;
     border-radius: 10px !important;
     font-weight: bold !important;
-    transition: all 0.3s ease-in-out !important;
 }
 
 .section-title {
@@ -44,4 +46,34 @@ button {
 
 .text-gray {
     color: var(--Gray) !important;
+}
+
+.align-end {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-action {
+    text-align: center;
+    border-radius: 50% !important;
+    width: 2vw !important;
+    height: 2vw !important;
+    padding: 1.5%;
+}
+
+.btn-action img {
+    width: 100%;
+    height: 100%;
+}
+
+.edit {
+    background-color: var(--Edit);
+}
+
+.btn-action:hover {
+    opacity: 0.7;
+}
+
+.delete {
+    background-color: var(--Delete);
 }

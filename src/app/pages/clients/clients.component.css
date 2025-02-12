@@ -9,3 +9,11 @@
     margin-bottom: 5px;
     padding: 10px;
 }
+
+.actions-box {
+    visibility: hidden;
+}
+
+.cell-client:hover .actions-box {
+    visibility: visible;
+}

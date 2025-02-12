@@ -13,19 +13,31 @@
             class="col-12 mt-4 scroll ps-4"
             style="transform: translateX(21%)">
             <div
-                *ngFor="let row of data"
+                *ngFor="let row of clients"
                 class="row col-7 cell-client">
                 <div class="row">
-                    <h5 class="col mb-0">Aksel Akemi Herrera Gonzalez</h5>
-                    <p class="col mb-0 text-end text-gray">323-XXX-XXX{{ row }}</p>
+                    <h5 class="col mb-0">{{row.name}}</h5>
+                    <p class="col mb-0 text-end text-gray">{{ row.phone }}</p>
                 </div>
                 <div class="row mt-1">
                     <h6 class="col m-0 text-gray">
-                        akselherrera18gmail.com
+                        {{row.email}}
                     </h6>
-                    <!--<button class="w-25 m-0">
-
-                    </button>-->
+                    <div
+                        class="row col align-end actions-box">
+                        <button
+                            class="btn-action me-2 edit">
+                            <img
+                                src="/icons/edit.png"
+                                alt="">
+                        </button>
+                        <button
+                            class="btn-action delete">
+                            <img
+                                src="/icons/delete.png"
+                                alt="">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
