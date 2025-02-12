@@ -10,10 +10,25 @@
     padding: 10px;
 }
 
-.actions-box {
+/*.actions-box {
     visibility: hidden;
+}*/
+
+.cell-client:hover .btn-action:nth-child(1) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.1s;
 }
+
+.cell-client:hover .btn-action:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+}
+
+/*
+
 
 .cell-client:hover .actions-box {
     visibility: visible;
-}
+}*/

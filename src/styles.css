@@ -53,12 +53,19 @@ button {
     justify-content: end;
 }
 
+.btn-add {
+    
+}
+
 .btn-action {
     text-align: center;
     border-radius: 50% !important;
     width: 2vw !important;
     height: 2vw !important;
     padding: 1.5%;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .btn-action img {
@@ -66,13 +73,14 @@ button {
     height: 100%;
 }
 
+.btn-action:hover {
+    opacity: 0.7;
+}
+
 .edit {
     background-color: var(--Edit);
 }
 
-.btn-action:hover {
-    opacity: 0.7;
-}
 
 .delete {
     background-color: var(--Delete);
