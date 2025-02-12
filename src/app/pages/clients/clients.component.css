@@ -10,25 +10,7 @@
     padding: 10px;
 }
 
-/*.actions-box {
-    visibility: hidden;
-}*/
-
-.cell-client:hover .btn-action:nth-child(1) {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.1s;
+.add-client {
+    background-color: var(--Green);
+    color: white !important;
 }
-
-.cell-client:hover .btn-action:nth-child(2) {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.2s;
-}
-
-/*
-
-
-.cell-client:hover .actions-box {
-    visibility: visible;
-}*/

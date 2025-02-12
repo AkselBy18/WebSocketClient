@@ -50,4 +50,13 @@ export class WebSocketMangerService {
       console.log("SERVER CLOSED", event);
     }
   }
+
+  public sendEvent(name: string, data: object) {
+    const message = JSON.stringify({
+      event: name,
+      data: data
+    });
+    console.log("event sending", message);
+    this.socket.send(message);
+  }
 }
