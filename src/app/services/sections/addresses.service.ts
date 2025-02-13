@@ -31,6 +31,15 @@ export class AddressesService {
     });
   }
 
+  public async getAddress() {
+    if (this.clients.length === 0) {
+      await this.syncAddresses();
+      return this.addressesModel;
+    } else {
+      return this.addressesModel;
+    }
+  }
+
   //MARK: PRIVATE METHODS ----------------------------------------------------------------------------
   private setModelAddress(addresses: Address[]) {
     this.addressesModel = [];

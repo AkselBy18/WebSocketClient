@@ -3,6 +3,7 @@ import {DataHandle, ResponseData} from "../utils/general.interface";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Client} from "../utils/interfaces/client.interface";
 import {Address} from "../utils/interfaces/address.interface";
+import {Order} from "../utils/interfaces/orders.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class WebSocketMangerService {
 
   private handleClients = new BehaviorSubject<DataHandle<Client> | null>(null);
   private handleAddresses = new BehaviorSubject<DataHandle<Address> | null>(null);
+  private handleOrders = new BehaviorSubject<DataHandle<Order> | null>(null);
 
   constructor() { }
 
@@ -31,12 +33,23 @@ export class WebSocketMangerService {
     });
   }
 
+  public setHandleOrder(data: object, event: string) {
+    this.handleOrders.next({
+      data: data as Order,
+      type: event as 'insert' | 'update' | 'delete'
+    });
+  }
+
   public get handleClient() {
     return this.handleClients.asObservable() as Observable<DataHandle<Client>>;
   }
 
   public get handleAddress() {
     return this.handleAddresses.asObservable() as Observable<DataHandle<Address>>;
+  }
+
+  public get handleOrder() {
+    return this.handleOrders.asObservable() as Observable<DataHandle<Order>>;
   }
 
   //MARK: PUBLIC METHODS -----------------------------------------------------------------------------
@@ -52,6 +65,8 @@ export class WebSocketMangerService {
         case 'clients': this.setHandleClient(response.data, response.event);
           break;
         case 'addresses': this.setHandleAddress(response.data, response.event);
+          break;
+        case 'orders': this.setHandleOrder(response.data, response.event);
           break;
       }
       console.log("SERVER MESSAGE", event.data);

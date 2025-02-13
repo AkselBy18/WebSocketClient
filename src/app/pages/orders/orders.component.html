@@ -1,1 +1,121 @@
-<p>orders works!</p>
+<div class="row vertical-center">
+    <div class="col-10">
+        <div class="row vertical-center ms-5">
+            <h3 class="col-2 ms-5 section-title">
+                Orders
+            </h3>
+            <img
+                src="/icons/reload.png"
+                alt=""
+                class="icon-reload">
+        </div>
+    </div>
+    <div
+        class="col-12 mt-4 scroll ps-4"
+        style="transform: translateX(21%)">
+        <!-- LIST ORDERS -->
+        <div
+            *ngFor="let row of orders"
+            class="row col-7 cell-row">
+            <div class="col-11">
+                <h5 class="col mb-2">
+                    {{row.client.name}}
+                </h5>
+                <div class="row">
+                    <p class="col text-gray mb-2">
+                        {{row.status}}
+                    </p>
+                    <p class="col text-end text-gray mb-2">
+                        {{row.order_date | date: 'dd/MM/YYYY HH:mm:ss'}}
+                    </p>
+                </div>
+                <div class="row text-end">
+                    <h5 class="col">
+                        {{row.total_amount | currency: 'MXN' : '$'}}
+                    </h5>
+                </div>
+            </div>
+            <div class="col mt-4 actions-box">
+                <button
+                    class="btn-action edit mb-1"
+                    [class.confirm]="row.deleting"
+                    (click)="row.deleting ? deleteOrder(row) : editOrder(row)">
+                    <img
+                        src="/icons/{{row.deleting ? 'done.png' : 'edit.png'}}"
+                        alt="">
+                </button>
+                <button
+                    class="btn-action delete"
+                    (click)="row.deleting = !row.deleting">
+                    <img
+                        src="/icons/{{row.deleting ? 'cancel.png' : 'delete.png'}}"
+                        alt="">
+                </button>
+            </div>
+        </div>
+        <!-- CELL ADD -->
+        <div
+            #cellAdd
+            class="row col-7 cell-row">
+            <div class="row col-12 mb-2">
+                <div class="col">
+                    <select
+                        class="form-control form-select"
+                        [(ngModel)]="currentOrder.id_client">
+                        <option
+                            *ngFor="let row of clients"
+                            [value]="row.id_client">
+                            {{ row.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input
+                        type="datetime-local"
+                        class="form-control"
+                        [(ngModel)]="dateFormatter"
+                        (ngModelChange)="onChangeDate($event)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <select
+                        class="form-control form-select"
+                        [(ngModel)]="currentOrder.status">
+                        <option
+                            *ngFor="let row of status"
+                            [value]="row">
+                            {{row}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input
+                        type="number"
+                        class="form-control"
+                        placeholder="0.00"
+                        [(ngModel)]="currentOrder.total_amount">
+                </div>
+            </div>
+            <div class="row col-12 vertical-center mt-2">
+                <button
+                    class="btn-save"
+                    (click)="sendRequest()">
+                    <img
+                        src="/icons/done.png"
+                        alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 text-center">
+        <button
+            class="btn btn-add add-order"
+            [class.btn-cancel]="showCellAdd"
+            (click)="addOrder()">
+            <img
+                src="/icons/add.png"
+                alt="">
+        </button>
+    </div>
+</div>
