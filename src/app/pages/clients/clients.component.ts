@@ -74,7 +74,6 @@ export class ClientsComponent implements OnInit, AfterViewInit {
   private getData() {
     this.services.syncClients().then(_ => {
       this.clients = this.services.clients.sort((a, b) => a.name.localeCompare(b.name));
-      console.log(this.clients);
     });
   }
 
